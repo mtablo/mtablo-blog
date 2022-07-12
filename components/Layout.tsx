@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import utilStyles from "../styles/utils.module.css";
-import styles from "./layout.module.css";
+import styles from "./Layout.module.css";
 
 const name = "Sunung Mun";
 export const siteTitle = "Sun's blog";
