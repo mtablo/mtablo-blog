@@ -1,9 +1,9 @@
+import { getAllPostIds, getPostData } from "api/posts";
+
 import Head from "next/head";
 
-import Date from "../../components/Date";
-import Layout from "../../components/Layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
-import utilStyles from "../../styles/utils.module.css";
+import Date from "components/Date";
+import Layout from "components/Layout";
 
 export default function Post({ postData }) {
   return (
@@ -12,8 +12,8 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className="headingXl">{postData.title}</h1>
+        <div className="lightText">
           <Date dateString={postData.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

@@ -14,8 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "typeRoots": ["../node_modules/@types", "./node_modules/@types", "./@types"]
+    "typeRoots": [
+      "../node_modules/@types",
+      "./node_modules/@types",
+      "./@types"
+    ],
+    "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/posts.js"],
+  "include": [".", "next-env.d.ts", "**/*.ts", "**/*.tsx", "api/posts.js"],
   "exclude": ["node_modules"]
 }

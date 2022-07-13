@@ -1,12 +1,11 @@
 import { ReactNode } from "react";
 
 import { NextPage } from "next";
+import styled from "styled-components";
+
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
-import utilStyles from "../styles/utils.module.css";
-import styles from "./Layout.module.css";
 
 const name = "Sunung Mun";
 export const siteTitle = "Sun's blog";
@@ -17,7 +16,7 @@ type NextPageWithLayout = NextPage<{
 }>;
 const Layout: NextPageWithLayout = ({ children, home }) => {
   return (
-    <div className={styles.container}>
+    <StyledDiv className="container">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -33,18 +32,18 @@ const Layout: NextPageWithLayout = ({ children, home }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className="header">
         {home ? (
           <>
             <Image
               priority
               src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
+              className="borderCircle"
               height={144}
               width={144}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className="heading2Xl">{name}</h1>
           </>
         ) : (
           <>
@@ -53,16 +52,16 @@ const Layout: NextPageWithLayout = ({ children, home }) => {
                 <Image
                   priority
                   src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
+                  className="borderCircle"
                   height={108}
                   width={108}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2 className="headingLg">
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className="colorInherit">{name}</a>
               </Link>
             </h2>
           </>
@@ -70,14 +69,33 @@ const Layout: NextPageWithLayout = ({ children, home }) => {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className="backToHome">
           <Link href="/">
             <a>← Back to home</a>
           </Link>
         </div>
       )}
-    </div>
+    </StyledDiv>
   );
 };
 
 export default Layout;
+
+const StyledDiv = styled.div`
+  .container {
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .backToHome {
+    margin: 3rem 0 0;
+  }
+`;

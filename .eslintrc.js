@@ -33,19 +33,13 @@ module.exports = {
         includeExports: true,
       },
     ],
-    // "no-restricted-imports": [
-    //   "error",
-    //   {
-    //     paths: [
-    //       "@mui/icons-material",
-    //       "@mui/material",
-    //       "@mui/lab",
-    //       "date-fns",
-    //       "react-dom/test-utils",
-    //     ],
-    //     patterns: ["../*", "@mui/*/*/*", "!@mui/material/test-utils/*"],
-    //   },
-    // ],
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: ["date-fns"],
+        patterns: ["../*", "@mui/*/*/*", "!@mui/material/test-utils/*"],
+      },
+    ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "import/order": [
@@ -59,7 +53,7 @@ module.exports = {
             position: "before",
           },
           {
-            pattern: "@mui/**",
+            pattern: "next/**",
             group: "external",
             position: "after",
           },
